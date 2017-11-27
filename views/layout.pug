@@ -12,29 +12,18 @@ html
     script(src='/javascripts/application.js')
   body
     block top-nav
-      .header.clearfix
-        nav.navbar.navbar-expand-lg.navbar-light.fixed-top
-          a.nav.navbar-brand.font-weight-bold(href="#") 이벤트Talk
-          button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarsExampleDefault", aria-controls="navbarsExampleDefault", aria-expanded="false", aria-label="Toggle navigation")
-            span.navbar-toggler-icon
+      include ./includes/topnav
 
-          #navbarsExampleDefault.collapse.navbar-collapse
-            ul.navbar-nav.ml-auto
-              li.nav-item
-                a.nav.nav-link(href="/questions") Questions
-              li.nav-item
-                a.nav.nav-link(href="/users") Users
-              if (!currentUser)
-                li.nav-item
-                  a.nav.nav-link(href='/signin') Signin
-                li.nav-item
-                  a.nav.nav-link(href='/users/new') Signup
-              else
-                li.nav-item
-                  a.nav.nav-link(href=`/users/${currentUser._id}`) My Profile
-                li.nav-item
-                  a.nav.nav-link(href='/signout') Signout
+    block hero-unit
+    if flashMessages
+      each texts, type in flashMessages
+        .container
+          .alert.alert-dismissible.fade.show(class=`alert-${type}`)
+            each msg in texts
+              | #{msg}
+            button.close(type='button', data-dismiss='alert', aria-label='close')
+              span(aria-hidden='true') &times;
     block content
+
     block footer
-      .footer
-        .container 2017 Myongji University. &copy; final project"60161607 박해진"
+     include ./includes/footer
