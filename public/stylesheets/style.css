@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Raleway");
-
 body {
   font: 1rem 'Montserrat', sans-serif;
   margin-top: 50px;
@@ -99,16 +98,16 @@ a:hover {
 .author {
   text-align: right;
   font-size: 0.8em;
-  color: #81bbf2; }
+  color: #e7c38a; }
 
 .numbers {
   text-align: left;
-  color: #81bbf2; }
+  color: #e7c38a; }
 
 .number {
   font-size: 1.2em;
   font-weight: bold;
-  color: #0f5ca6; }
+  color: #a65a0f; }
 
 .questions .content {
   max-height: 5em;
