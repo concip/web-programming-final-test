@@ -13,7 +13,7 @@ var passport = require('passport');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var questions = require('./routes/questions');
+var events = require('./routes/events');
 
 var passportConfig = require('./lib/passport-config');
 
@@ -34,9 +34,9 @@ app.locals.querystring = require('querystring');
 // mongodb connect
 //=======================================================
 mongoose.Promise = global.Promise; // ES6 Native Promise를 mongoose에서 사용한다.
-const connStr = 'mongodb://localhost/mjdb1';
+//const connStr = 'mongodb://localhost/mjdb1';
 // 아래는 mLab을 사용하는 경우의 예: 본인의 접속 String으로 바꾸세요.
-// const connStr = 'mongodb://dbuser1:mju12345@ds113825.mlab.com:13825/sampledb1';
+const connStr = 'mongodb://hae:04111225@ds135156.mlab.com:35156/finalproject';
 mongoose.connect(connStr, {useMongoClient: true });
 mongoose.connection.on('error', console.error);
 
@@ -81,7 +81,7 @@ passportConfig(passport);
 
 // pug의 local에 현재 사용자 정보와 flash 메시지를 전달하자.
 app.use(function(req, res, next) {
-  res.locals.currentUser = req.session.user;
+  res.locals.currentUser = req.user;
   res.locals.flashMessages = req.flash();
   next();
 });
@@ -89,7 +89,7 @@ app.use(function(req, res, next) {
 // Route
 app.use('/', index);
 app.use('/users', users);
-app.use('/questions', questions);
+app.use('/events', events);
 require('./routes/auth')(app, passport);
 
 // catch 404 and forward to error handler
