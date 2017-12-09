@@ -1,0 +1,24 @@
+.form-group
+  label(for="title") Title
+  input.form-control(type="text", name="title", placeholder="Write event name", value=event.title)
+.form-group
+  label(for="event") Event Description
+  textarea.form-control(name="content", rows="5")= event.content
+.form-group
+  label(for="tags") Place
+  input.form-control(type="text", name="tags", placeholder="palces separated by spaces", value=event.tags ? event.tags.join(" ") : "")
+.form-group
+  label(for="Date") Date
+  input.form-control(type="date", name="date", value=event.date)
+.form-group
+  label(for="Time") Start Time
+  input.form-control(type="time", name="starttime", value=event.start)
+.form-group
+  label(for="Time") End Time
+  input.form-control(type="time", name="endtime", value=event.end)
+.form-group
+  label(for="register") Register-Team
+  input.form-control(type="text", name="register", placeholder="Write register-team", value=event.register)
+.form-group
+  label(for="event") Register Description
+  textarea.form-control(name="Rcontent", rows="5")= event.Rcontent
