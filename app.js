@@ -37,7 +37,7 @@ mongoose.Promise = global.Promise; // ES6 Native Promise를 mongoose에서 사�
 //const connStr = 'mongodb://localhost/mjdb1';
 // 아래는 mLab을 사용하는 경우의 예: 본인의 접속 String으로 바꾸세요.
 const connStr = (process.env.NODE_ENV == 'production')?
-  'mongodb://hae:04111225@ds135156.mlab.com:35156/finalproject'
+  'mongodb://hae:04111225@ds135156.mlab.com:35156/finalproject' :
   'mongodb://localhost/mjdb1';
 mongoose.connect(connStr, {useMongoClient: true });
 mongoose.connection.on('error', console.error);
